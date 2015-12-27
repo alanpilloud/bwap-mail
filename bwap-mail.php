@@ -3,7 +3,7 @@
 Plugin Name: BWAP Mail
 Plugin URI: http://alanpilloud.github.io
 Description: Add a simple way to use your bootstrap form with ajax
-Version: 0.1
+Version: 0.0.1
 Author: Bureau Web Alan Pilloud
 Author URI: http://alanpilloud.github.io
 */
@@ -22,7 +22,7 @@ if (!class_exists('BwapMail')) {
     {
         protected $tag = 'bwap-mail';
         protected $name = 'BWAP Mail';
-        protected $version = '0.1';
+        protected $version = '0.0.1';
 
         public function __construct()
         {
