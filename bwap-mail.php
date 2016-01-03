@@ -39,7 +39,7 @@ if (!class_exists('BwapMail')) {
         protected function enqueue()
         {
             $plugin_path = plugin_dir_url( __FILE__ );
-            wp_enqueue_script($this->tag, $plugin_path . 'script.js', null, $this->version, true);
+            wp_enqueue_script($this->tag, $plugin_path . 'bwap-mail.js', null, $this->version, true);
         }
 
         public function sendform_callback()
