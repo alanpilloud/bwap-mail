@@ -26,7 +26,7 @@ form.addEventListener('submit',function(e){
         formMsg.innerHTML = formMsg.getAttribute('data-required');
         formMsg.style.display = 'block';
         formMsg.className = 'alert alert-danger';
-        //return false;
+        return false;
     }
 
     var xmlhttp;
@@ -39,6 +39,7 @@ form.addEventListener('submit',function(e){
                 formMsg.innerHTML = response.msg;
                 formMsg.style.display = 'block';
                 formMsg.className = 'alert alert-success';
+                form.parentNode.removeChild(form);
             } else {
                 formMsg.innerHTML = response.msg;
                 formMsg.style.display = 'block';
@@ -70,13 +71,11 @@ function serialize(form) {
                 case 'email':
                 case 'number':
                 case 'password':
-                    //q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
                     fd.append(form.elements[i].name, form.elements[i].value);
                     break;
                 case 'checkbox':
                 case 'radio':
                     if (form.elements[i].checked) {
-                        //q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
                         fd.append(form.elements[i].name, form.elements[i].value);
                     }
                     break;
@@ -86,19 +85,16 @@ function serialize(form) {
             }
             break;
         case 'TEXTAREA':
-            //q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
             fd.append(form.elements[i].name, form.elements[i].value);
             break;
         case 'SELECT':
             switch (form.elements[i].type) {
             case 'select-one':
-                //q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
                 fd.append(form.elements[i].name, form.elements[i].value);
                 break;
             case 'select-multiple':
                 for (j = form.elements[i].options.length - 1; j >= 0; j = j - 1) {
                     if (form.elements[i].options[j].selected) {
-                        //q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].options[j].value));
                         fd.append(form.elements[i].name, form.elements[i].options[j].value);
                     }
                 }
@@ -108,5 +104,4 @@ function serialize(form) {
         }
     }
     return fd;
-    //return q.join("&");
 }
