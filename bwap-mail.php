@@ -3,15 +3,12 @@
 Plugin Name: BWAP Mail
 Plugin URI: http://alanpilloud.github.io
 Description: Add a simple way to use your bootstrap form with ajax
-Version: 0.0.2
+Version: 1.0.3
 Author: Bureau Web Alan Pilloud
 Author URI: http://alanpilloud.github.io
 */
 
 defined( 'ABSPATH' ) or die;
-
-require 'plugin_update_check.php';
-$MyUpdateChecker = new PluginUpdateChecker_2_0 ('https://kernl.us/api/v1/updates/5680505a086e629607788b83/', __FILE__, 'bwap-mail', 1);
 
 if (!class_exists('BwapMail')) {
 
