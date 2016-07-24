@@ -10,8 +10,9 @@ form.addEventListener('submit',function(e){
 
     var errorOccured = false;
     for (var i = requiredFields.length-1; i >= 0; i--) {
-        that = requiredFields[i];
-        parent = that.parentElement;
+        var that = requiredFields[i],
+            parent = that.parentNode;
+
         if (that.value === '') {
             parent.classList.add('has-error');
             errorOccured = true;
